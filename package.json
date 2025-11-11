@@ -1,7 +1,7 @@
 {
   "name": "nevos---ai-skin-cancer-detection",
   "private": true,
-  "homepage":".",
+  "homepage": ".",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -21,7 +21,10 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "@tailwindcss/vite": "^1.1.1",
+    "tailwindcss": "^3.4.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
 }
+
