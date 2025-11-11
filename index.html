@@ -1,17 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEVOS - AI Skin Cancer Detection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google fonts (ok as-is) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Tailwind config MUST come BEFORE the CDN script -->
     <script>
+      /* Tailwind configuration — must be declared before loading the CDN script */
+      tailwind = window.tailwind || {};
       tailwind.config = {
         theme: {
           extend: {
@@ -31,24 +34,55 @@
             },
           },
         },
-      }
+      };
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
-    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.44.0",
-    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
-    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
-  }
-}
-</script>
-</head>
-  <body class="bg-brand-background text-brand-text">
-    <div id="root"></div>
+
+    <!-- Tailwind CDN (reads tailwind.config above) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Optional: babel or importmap can remain after tailwind -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+        "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.44.0",
+        "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+        "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
+      }
+    }
+    </script>
+
+  </head>
+
+  <body class="bg-brand-background text-brand-text font-sans min-h-screen">
+    <div id="root" class="p-8">
+      <header class="max-w-3xl mx-auto">
+        <h1 class="text-3xl font-bold text-brand-heading mb-2">NEVOS — AI Skin Cancer Detection</h1>
+        <p class="text-base text-brand-text mb-6">A demo using custom Tailwind colors & fonts.</p>
+      </header>
+
+      <main class="max-w-3xl mx-auto bg-brand-white rounded-2xl shadow p-6">
+        <section class="mb-4">
+          <h2 class="font-serif text-xl text-brand-primary mb-2">Upload an image</h2>
+          <div class="border-2 border-dashed border-brand-subtle rounded-lg p-6 text-center">
+            <p class="mb-4">Drop or choose an image to analyze</p>
+            <button class="px-4 py-2 rounded-md text-white bg-brand-primary hover:bg-brand-primary-dark">Choose File</button>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="font-semibold mb-2">Status</h3>
+          <div class="p-4 bg-brand-subtle rounded">No image uploaded</div>
+        </section>
+      </main>
+    </div>
+
+    <!-- add your app's scripts here, e.g. React mount script -->
   </body>
 </html>
