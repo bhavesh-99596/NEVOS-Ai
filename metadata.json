@@ -1,0 +1,7 @@
+{
+  "name": "NEVOS - AI Skin Cancer Detection",
+  "description": "A sophisticated web-based skin cancer detection platform that leverages artificial intelligence to analyze uploaded skin images and provide preliminary assessments of potential skin conditions.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
