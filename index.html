@@ -1,88 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEVOS - AI Skin Cancer Detection</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEVOS - AI Skin Cancer Detection</title>
 
-    <!-- Google fonts (ok as-is) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind config MUST come BEFORE the CDN script -->
-    <script>
-      /* Tailwind configuration — must be declared before loading the CDN script */
-      tailwind = window.tailwind || {};
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-background': '#F8F5F2', // Light beige
-              'brand-primary': '#84A98C',   // Sage green
-              'brand-primary-dark': '#6a8b70',
-              'brand-secondary': '#CAD2C5', // Light gray-green
-              'brand-text': '#353535',     // Dark charcoal
-              'brand-heading': '#2F3E46',  // Dark slate
-              'brand-white': '#FFFFFF',
-              'brand-subtle': '#EAEAEA',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Lora', 'serif'],
-            },
+  <!-- IMPORTANT: set tailwind config on window before loading CDN -->
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-background': '#F8F5F2',
+            'brand-primary': '#84A98C',
+            'brand-primary-dark': '#6a8b70',
+            'brand-secondary': '#CAD2C5',
+            'brand-text': '#353535',
+            'brand-heading': '#2F3E46',
+            'brand-white': '#FFFFFF',
+            'brand-subtle': '#EAEAEA',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Lora', 'serif'],
           },
         },
-      };
-    </script>
-
-    <!-- Tailwind CDN (reads tailwind.config above) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Optional: babel or importmap can remain after tailwind -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://aistudiocdn.com/react@^19.2.0",
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-        "react/": "https://aistudiocdn.com/react@^19.2.0/",
-        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
-        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
-        "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.44.0",
-        "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
-        "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
       }
+    };
+  </script>
+
+  <!-- Tailwind CDN (reads window.tailwind.config set above) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional dev tools (Babel/importmap stay after Tailwind) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+      "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+      "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.44.0",
+      "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+      "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
     }
-    </script>
+  }
+  </script>
 
-  </head>
+  <style>
+    /* small safety fallback so text looks correct even if CDN/config not loaded yet */
+    body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+</head>
 
-  <body class="bg-brand-background text-brand-text font-sans min-h-screen">
-    <div id="root" class="p-8">
-      <header class="max-w-3xl mx-auto">
-        <h1 class="text-3xl font-bold text-brand-heading mb-2">NEVOS — AI Skin Cancer Detection</h1>
-        <p class="text-base text-brand-text mb-6">A demo using custom Tailwind colors & fonts.</p>
-      </header>
+<body class="bg-brand-background text-brand-text min-h-screen font-sans">
+  <div id="root" class="p-8 max-w-4xl mx-auto">
+    <header class="mb-6">
+      <h1 class="text-4xl font-bold text-brand-heading mb-2">NEVOS — AI Skin Cancer Detection</h1>
+      <p class="text-base text-brand-text">A demo using custom Tailwind colors & fonts.</p>
+    </header>
 
-      <main class="max-w-3xl mx-auto bg-brand-white rounded-2xl shadow p-6">
-        <section class="mb-4">
-          <h2 class="font-serif text-xl text-brand-primary mb-2">Upload an image</h2>
-          <div class="border-2 border-dashed border-brand-subtle rounded-lg p-6 text-center">
-            <p class="mb-4">Drop or choose an image to analyze</p>
-            <button class="px-4 py-2 rounded-md text-white bg-brand-primary hover:bg-brand-primary-dark">Choose File</button>
-          </div>
-        </section>
+    <main class="bg-brand-white rounded-2xl shadow p-6">
+      <section class="mb-6">
+        <h2 class="font-serif text-xl text-brand-primary mb-4">Upload an image</h2>
+        <div class="border-2 border-dashed border-brand-subtle rounded-lg p-10 text-center">
+          <p class="mb-4">Drop or choose an image to analyze</p>
+          <button class="px-4 py-2 rounded-md text-white bg-brand-primary hover:bg-brand-primary-dark">Choose File</button>
+        </div>
+      </section>
 
-        <section>
-          <h3 class="font-semibold mb-2">Status</h3>
-          <div class="p-4 bg-brand-subtle rounded">No image uploaded</div>
-        </section>
-      </main>
-    </div>
+      <section>
+        <h3 class="font-semibold mb-2">Status</h3>
+        <div class="p-4 bg-brand-subtle rounded">No image uploaded</div>
+      </section>
+    </main>
+  </div>
 
-    <!-- add your app's scripts here, e.g. React mount script -->
-  </body>
+  <!-- your app scripts (React mount or other) go here -->
+</body>
 </html>
