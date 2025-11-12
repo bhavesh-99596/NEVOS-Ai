@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEVOS — AI Skin Cancer Detection</title>
 
+    <!-- ✅ Favicon (optional, replace with your own logo) -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/3/3a/Circle-icons-health.svg" />
+
+    <!-- ✅ SEO & Social Meta -->
+    <meta
+      name="description"
+      content="NEVOS is an AI-powered skin cancer detection platform that analyzes skin images to assist with early diagnosis."
+    />
+    <meta property="og:title" content="NEVOS — AI Skin Cancer Detection" />
+    <meta
+      property="og:description"
+      content="Upload a skin image and let NEVOS AI help you detect potential skin cancers early."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://i.ibb.co/pwrQfQv/nevos-thumbnail.png" />
+
     <!-- ✅ Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,25 +29,25 @@
       rel="stylesheet"
     />
 
-    <!-- ✅ Tailwind config (must be declared before Tailwind script) -->
+    <!-- ✅ Tailwind config (before Tailwind script) -->
     <script>
       window.tailwind = window.tailwind || {};
       window.tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'brand-background': '#F8F5F2',
-              'brand-primary': '#84A98C',
-              'brand-primary-dark': '#6a8b70',
-              'brand-secondary': '#CAD2C5',
-              'brand-text': '#353535',
-              'brand-heading': '#2F3E46',
-              'brand-white': '#FFFFFF',
-              'brand-subtle': '#EAEAEA',
+              "brand-background": "#F8F5F2",
+              "brand-primary": "#84A98C",
+              "brand-primary-dark": "#6a8b70",
+              "brand-secondary": "#CAD2C5",
+              "brand-text": "#353535",
+              "brand-heading": "#2F3E46",
+              "brand-white": "#FFFFFF",
+              "brand-subtle": "#EAEAEA",
             },
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Lora', 'serif'],
+              sans: ["Inter", "sans-serif"],
+              serif: ["Lora", "serif"],
             },
           },
         },
@@ -41,30 +57,33 @@
     <!-- ✅ Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ✅ Custom CSS overrides -->
+    <!-- ✅ Custom Inline Styles -->
     <style>
       body {
         font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
-        background-color: #F8F5F2;
+        background-color: #f8f5f2;
         color: #353535;
         margin: 0;
         padding: 0;
         min-height: 100vh;
       }
 
-      h1, h2, h3, h4 {
-        color: #2F3E46;
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #2f3e46;
       }
 
       .nevos-card {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         border-radius: 1rem;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       }
 
       .nevos-btn {
-        background-color: #84A98C;
+        background-color: #84a98c;
         color: white;
         padding: 0.75rem 1.5rem;
         border-radius: 0.5rem;
@@ -76,37 +95,62 @@
       }
 
       .nevos-border {
-        border: 2px dashed #EAEAEA;
+        border: 2px dashed #eaeaea;
         border-radius: 0.75rem;
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .nevos-card {
+          padding: 1.5rem;
+        }
       }
     </style>
   </head>
 
   <body class="flex flex-col items-center justify-center p-6">
     <div class="w-full max-w-3xl">
+      <!-- Header -->
       <header class="mb-6 text-center">
-        <h1 class="text-4xl font-bold mb-2 font-serif">NEVOS — AI Skin Cancer Detection</h1>
+        <h1 class="text-4xl font-bold mb-2 font-serif">
+          NEVOS — AI Skin Cancer Detection
+        </h1>
         <p class="text-base text-brand-text">
-          Upload a skin image for early AI-based skin cancer screening.
+          Upload a skin image for early AI-based screening and risk analysis.
         </p>
       </header>
 
+      <!-- Main Card -->
       <main class="nevos-card p-8">
         <section class="mb-6">
-          <h2 class="font-serif text-xl text-brand-primary mb-4">Upload an Image</h2>
+          <h2 class="font-serif text-xl text-brand-primary mb-4">
+            Upload an Image
+          </h2>
           <div class="nevos-border p-10 text-center">
-            <p class="mb-4 text-brand-text">Drop or choose an image to analyze</p>
+            <p class="mb-4 text-brand-text">
+              Drop or choose an image to analyze
+            </p>
             <button class="nevos-btn">Choose File</button>
           </div>
         </section>
 
         <section>
           <h3 class="font-semibold mb-2 text-brand-heading">Status</h3>
-          <div class="p-4 bg-brand-subtle rounded">
+          <div class="p-4 bg-brand-subtle rounded text-brand-text">
             No image uploaded
           </div>
         </section>
       </main>
+
+      <!-- Footer -->
+      <footer class="mt-8 text-center text-sm text-gray-600">
+        <p>© 2025 NEVOS. All rights reserved.</p>
+      </footer>
     </div>
   </body>
 </html>
+
